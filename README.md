@@ -3,7 +3,7 @@ projeto que permite a criação de eventos {CRUD}, com relação de (One to Many
 
 Projeto Eventos
 
-<UML>
+<UML
 
 {Evento}
 
@@ -19,7 +19,7 @@ string rg (primary key);
 string nomeConvidado;
 string emailConvidado;
 
-<DESENVOLVIMENTO>
+<DESENVOLVIMENTO
 
 {Packages}
 Model
