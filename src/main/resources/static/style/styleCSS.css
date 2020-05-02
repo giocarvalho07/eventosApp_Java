@@ -1,0 +1,12 @@
+
+
+#container_home{
+	display: flex;
+	justify-content: center;
+
+}
+
+.sublinhado_logo:hover {
+	text-decoration: none;
+	color: white;
+}

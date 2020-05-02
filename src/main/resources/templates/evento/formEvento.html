@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" >
+
+<head>
+
+	      <link rel="stylesheet" href="style/styleCSS.css"/>
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<title> EventosApp </title>
+  
+</head>
+
+<body>
+
+	   <!--header	-->
+
+		<header>
+		  <nav class="nav-mobile">
+			<div class="nav-wrapper  orange lighten-2">
+		      <div class="container">
+		      		<a th:href="@{/home}" class="brand-logo sublinhado_logo">Cadastre seu evento</a>
+		      </div>
+		      
+		      <div class="container ">
+		      		<ul id="nav-mobile" class="right">
+						<a th:href="@{/home}" class="waves-effect waves-light btn">
+						<i class="material-icons left">format_list_bulleted</i>
+						Acompanhe seu evento </a></ul>
+		      </div>
+		    </div>
+		  </nav>
+	</header>
+	
+	
+		   <!--header	-->
+	
+	
+		<div class="container card-panel white" >
+		<div class="section" >
+			<h3> Registre seu evento </h3>
+		<div>
+		
+			<th:block th:include="mensagemValidacao"></th:block>	
+		
+		<form  method= "post">
+	
+		Nome do evento : <input type= "text" value= " " name= "nome"/>
+		<div class="row" >
+			<div class="input-filed col s6">Local do evento : <input type= "text" value= " " name= "local"/> </div>
+			<div class="input-filed col s3"> Data do evento : <input type= "date" value= " " name= "data"/> </div>
+			<div class="input-filed col s3"> Horario do evento : <input type= "time" value= " " name= "horario"/> </div>
+		</div>
+		
+	<button class="waves-effect waves-light btn" type= "submit"> Salvar </button>
+
+	
+	</form>
+		</div>
+	</div>
+	</div>
+	
+
+	
+		<!--JavaScript at end of body for optimized loading-->
+	 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" >
+
+<head>
+	
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+	  <link rel="stylesheet" th:href="@{style/styleCSS.css}"/>
+	
+	<title> EventosApp </title>
+  
+</head>
+
+<body>
+
+	<header>
+		  <nav class="nav-mobile">
+			<div class="nav-wrapper  orange lighten-2">
+		      <div class="container">
+		      		<a th:href="@{/home}" class="brand-logo sublinhado_logo">Nossos Eventos</a>
+		      </div>
+		      
+		      <div class="container ">
+		      		<ul id="nav-mobile" class="right">
+						<a th:href="@{/home}" class="waves-effect waves-light btn">
+						<i class="material-icons left">format_list_bulleted</i>
+						Acompanhe seu evento </a></ul>
+		      </div>
+		    </div>
+		  </nav>
+	</header>
+	
+	
+<!--Adicionar convidados -->
+	<div class="container card-panel white" >
+		<div class="section" >
+			<h3> Adicione os convidados </h3>
+		<div>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+			<form method="POST">
+			Email: <input type="text" value=" " name="emailConvidado"/>
+			Nome: <input type="text" value=" " name="nomeConvidado"/>
+			RG: <input type="text" value=" " name="rg"/>	
+			<button class="waves-effect waves-light btn" type="submit" > Adicionar </button>
+			</form>
+		</div>
+	</div>
+	</div>
+	
+<!--Fim adicionar convidados -->
+	
+	
+<!-- Eventos -->
+	<div class="container card-panel white">
+		<div class="section">
+			<div class="section">
+				<h3> Evento </h3>
+			<div>
+			
+			<table class="container" >
+			<thead>
+				<tr>
+					<th> Nome do evento</th> 
+					<th> Local do evento</th> 
+					<th> Data do evento</th> 
+					<th> Horario do evento</th> 
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="evento: ${evento}" class="container">
+					<td><span th:text="${evento.nome}"></span></td> 
+					<td><span th:text="${evento.local}"></span></td> 
+					<td><span th:text="${evento.data}"></span></td> 
+					<td><span th:text="${evento.horario}"></span></td> 
+				</tr>
+			</tbody>
+		</table>
+			</div>
+			</div>	
+		</div>
+	</div>
+	
+<!--Fim eventos -->
+
+<!-- Participantes -->	
+		<div class="container card-panel white" >
+			<div class="section">
+				<h3> Participantes </h3>
+	
+	
+		<table class="container" >
+		<thead>
+			<tr>
+				<th> Nome do participante</th> 
+				<th> Email do participante</th> 
+				<th> Rg do participante</th> 
+				<th> Deletar o participante </th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each= "convidado: ${convidados}">
+				<td><span th:text= "${convidado.nomeConvidado}"></span></td> 
+				<td><span th:text= "${convidado.emailConvidado}"></span></td> 
+				<td><span th:text= "${convidado.rg}"></span></td> 
+				<td><a class="waves-effect waves-ligth btn-small red lighten-1" 
+						th:href= "${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}">
+				<i class="material-icons left">delete</i></a></td> 
+			</tr>
+		</tbody>
+	</table>
+	
+			</div>
+		</div>
+<!--Fim participantes -->	
+
+	<!--JavaScript at end of body for optimized loading-->
+	 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+</body>
+
+</html>
